@@ -63,3 +63,21 @@ export async function tambahPelanggan(nama, alamat, nohape) {
     console.log('gagal menyimpan data pelanggan' + error)
   }
 }
+
+export async function hapusPelanggan(id) {
+  await deleteDoc(doc(basisdata, "pelanggan3", id))
+}
+
+export async function ubahPelanggan(id, namabaru, alamatbaru, nohapebaru) {
+  await updateDoc(
+    doc(basisdata, "pelanggan3", id), 
+    { nama: namabaru, alamat: alamatbaru, nohape: nohapebaru }
+    )
+}
+  
+export async function ambilPelanggan(id) {
+  const refDokumen = await doc(basisdata, "pelanggan3", id)
+  const snapshotDokumen = await getDoc(refDokumen)
+
+  return await snapshotDokumen.data()
+}    
