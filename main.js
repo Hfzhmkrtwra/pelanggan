@@ -22,3 +22,26 @@ const firebaseConfig = {
   appId: "1:686649580589:web:61374bbbd68adb604eaca4",
   measurementId: "G-LNZTQBCE26"
 };
+
+//inisialisasi firebase
+const aplikasi = initializeApp(firebaseConfig)
+const basisdata = getFirestore(aplikasi)
+
+
+export async function ambilDaftarPelanggan() {
+  const refDokumen = collection(basisdata, "pelanggan3");
+  const kueri = query(refDokumen, orderBy("nama"));
+  const cuplikanKueri = await getDocs(kueri);
+
+  let hasilKueri = [];
+  cuplikanKueri.forEach((dokumen) => {
+    hasilKueri.push({
+      id: dokumen.id,
+      nama: dokumen.data().nama,
+      alamat: dokumen.data().alamat,
+      nohape: dokumen.data().nohape
+    })
+  })
+
+  return hasilKueri;
+}
