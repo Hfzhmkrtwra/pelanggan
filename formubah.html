@@ -40,22 +40,22 @@
       const queryString = window.location.search
       const parameterURL = new URLSearchParams(queryString)
       const id = parameterURL.get('id')
-      const barang = await ambilPelanggan(id)
+      const pelanggan = await ambilPelanggan(id)
 
-      $("#inputnama").val(barang.nama)
-      $("#inputalamat").val(barang.alamat)
-      $("#inputnohape").val(barang.nohape)
+      $("#inputnama").val(pelanggan.nama)
+      $("#inputalamat").val(pelanggan.alamat)
+      $("#inputnohape").val(pelanggan.nohape)
 
       //ambil data dari formulir
 
       $("#tombolsimpan").click(async function(event) {
         event.preventDefault()
 
-        let nama = $("#inputnamaa").val()
+        let nama = $("#inputnama").val()
         let alamat = $("#inputalamat").val()
         let nohape = $("#inputnohape").val()
 
-        // simpan data buah yang baru
+        // simpan data pelanggan yang baru
 
         await ubahPelanggan(id, nama, alamat, nohape)
 
