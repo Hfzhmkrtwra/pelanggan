@@ -14,12 +14,12 @@
 
 <body>
   <h1>Formulir Tambah Pelanggan</h1>
-  
+
   <style>
-  body {
-    margin: 30px;
-  }
-</style>
+    body {
+      margin: 30px;
+    }
+  </style>
 
   <form class="mb-3">
     <div class="mb-3">
@@ -38,18 +38,18 @@
       <button class="btn btn-primary" id="tombolsimpan">Simpan</button>
     </div>
   </form>
-  
-    <a href="index.html">Kembali ke daftar pelanggan</a>
+
+  <a href="index.html">Kembali ke daftar pelanggan</a>
 
   <script type="module">
-    import { tambahPelanggan, hapusPelanggan} from "./main.js";
+    import { tambahPelanggan, hapusPelanggan } from "./main.js";
 
     $(document).ready(async function() {
       //ambil data dari formulir
 
       $("#tombolsimpan").click(async function(event) {
         event.preventDefault()
-        
+
         // membuat tombol ini jadi disabled
         $(this).attr('disabled', 'disabled')
 
