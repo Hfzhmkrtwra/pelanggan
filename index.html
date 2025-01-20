@@ -37,6 +37,8 @@
     </tbody>
   </table>
 
+  <p id="jumlahpelanggan">Jumlah Pelanggan</p>
+
   <a href="formtambah.html">Tambah Pelanggan</a>
 
   <script type="module">
@@ -52,7 +54,7 @@
         elemenDaftarPelanggan.append(
           "<tr>" +
           "<td>" + nomor + "</td>" +
-          "<td>" + data.nama + "</td>" +    
+          "<td>" + data.nama + "</td>" +
           "<td>" + data.alamat + "</td>" +
           "<td>" + data.nohape + "</td>" +
           "<td>" + "<a href='#' class=' me-2 link-ubah' data='" + data.id + "'>ubah</a> <button class='btn btn-success tombol-hapus' data='" + data.id + "'>hapus</button>" + "</td>" +
@@ -60,6 +62,8 @@
         )
 
         nomor = nomor + 1
+
+        $('#jumlahpelanggan').html("jumlah Pelanggan : " + (nomor - 1))
       })
 
       $(".tombol-hapus").click(async function() {
